@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bbpuoatp75b2q"]
+
+[ext_resource type="Script" uid="uid://byludmpxmg6b4" path="res://Scripts/KillZone.gd" id="1_8f5oa"]
+[ext_resource type="Script" uid="uid://c6wk634pm0vgh" path="res://Scripts/Point.gd" id="2_nq301"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vf00i"]
+albedo_color = Color(5.7275593e-06, 0.7673067, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8f5oa"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8f5oa"]
+height = 6.909546
+radius = 0.55029297
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nq301"]
+height = 6.909668
+radius = 0.54345703
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vf00i"]
+height = 1.7303467
+radius = 0.11035156
+
+[node name="Pipe" type="AnimatableBody3D" unique_id=570592516]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=711868487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.4838934, 0)
+use_collision = true
+height = 6.790146
+sides = 30
+material = SubResource("StandardMaterial3D_vf00i")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=780119771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0567297, 0)
+use_collision = true
+radius = 0.5605469
+height = 0.15516472
+sides = 30
+material = SubResource("StandardMaterial3D_vf00i")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D2" unique_id=1496558515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015358686, 0)
+operation = 2
+radius = 0.4404297
+height = 0.13421965
+sides = 30
+material = SubResource("StandardMaterial3D_vf00i")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D2" unique_id=228548736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09721613, 0)
+radius = 0.4404297
+height = 0.13421965
+sides = 30
+material = SubResource("StandardMaterial3D_8f5oa")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=2123273187]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 1.498061e-07, 4.370326, 0)
+use_collision = true
+height = 6.790146
+sides = 30
+material = SubResource("StandardMaterial3D_vf00i")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=1004961982]
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -1.498061e-07, 0.94316196, 0)
+use_collision = true
+radius = 0.5605469
+height = 0.15516472
+sides = 30
+material = SubResource("StandardMaterial3D_vf00i")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D4" unique_id=544972895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015358686, 0)
+operation = 2
+radius = 0.4404297
+height = 0.13421965
+sides = 30
+material = SubResource("StandardMaterial3D_vf00i")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D4" unique_id=827679248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09721613, 0)
+radius = 0.4404297
+height = 0.13421965
+sides = 30
+material = SubResource("StandardMaterial3D_8f5oa")
+
+[node name="Kill" type="Area3D" parent="." unique_id=859835375]
+script = ExtResource("1_8f5oa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kill" unique_id=594861462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.320451, 0)
+shape = SubResource("CylinderShape3D_8f5oa")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Kill" unique_id=2138424699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.4299316, 0)
+shape = SubResource("CylinderShape3D_nq301")
+
+[node name="Point" type="Area3D" parent="." unique_id=562652962]
+script = ExtResource("2_nq301")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Point" unique_id=388913359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049743652, 0)
+shape = SubResource("CylinderShape3D_vf00i")
+
+[connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
+[connection signal="body_entered" from="Point" to="Point" method="_on_body_entered"]
