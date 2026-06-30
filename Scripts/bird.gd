@@ -4,6 +4,7 @@ extends CharacterBody3D
 
 
 const JUMP_VELOCITY = 8
+var paused = false
 
 
 func _physics_process(delta: float) -> void:
@@ -16,9 +17,17 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta * 3
 
 	if Input.is_action_just_pressed("flap"):
+
 		rotation.x = rotate_toward(rotation.x,deg_to_rad(-60),deg_to_rad(50 * delta))
 		rotation.x = clampf(rotation.x,deg_to_rad(-90),deg_to_rad(45))
 		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("esc") and !paused:
+		Engine.time_scale = 0.0
+		paused = true
+	elif Input.is_action_just_pressed("esc") and paused:
+		Engine.time_scale = 1.0
+		paused = false
+		
 		
 
 	move_and_slide()

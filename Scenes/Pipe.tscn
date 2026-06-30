@@ -6,16 +6,18 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vf00i"]
 albedo_color = Color(5.7275593e-06, 0.7673067, 0, 1)
+metallic = 0.55
+roughness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8f5oa"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8f5oa"]
-height = 6.0231323
+height = 6.1458435
 radius = 0.55029297
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_nq301"]
-height = 6.909668
+height = 6.935791
 radius = 0.54345703
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vf00i"]
@@ -69,7 +71,7 @@ sides = 30
 material = SubResource("StandardMaterial3D_vf00i")
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=1004961982]
-transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -1.498061e-07, 1.7598939, 0)
+transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -1.498061e-07, 1.7461934, 0)
 use_collision = true
 collision_layer = 2
 collision_mask = 2
@@ -99,11 +101,11 @@ collision_mask = 2
 script = ExtResource("1_8f5oa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Kill" unique_id=594861462]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7636576, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.702302, 0)
 shape = SubResource("CylinderShape3D_8f5oa")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Kill" unique_id=2138424699]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.4299316, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.41687, 0)
 shape = SubResource("CylinderShape3D_nq301")
 
 [node name="Point" type="Area3D" parent="." unique_id=562652962]

@@ -10,7 +10,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var pipe = PIPE.instantiate()
+	
 	timer += delta
-	if timer > 3:
+	if timer > 2:
 		add_child(pipe)
 		timer = 0
+		pipe.global_position.y = global_position.y + randf_range(-1.5,2.5)

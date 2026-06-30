@@ -1,3 +1,120 @@
 [gd_scene format=3 uid="uid://bks1mrpkjdvfl"]
 
+[ext_resource type="Script" uid="uid://c6o5hji6ovsm1" path="res://Scripts/menu.gd" id="1_158mb"]
+[ext_resource type="Script" uid="uid://byludmpxmg6b4" path="res://Scripts/KillZone.gd" id="1_cayip"]
+[ext_resource type="Texture2D" uid="uid://dwb84h2t31mq6" path="res://Assets/Mobile - Flappy Bird - Miscellaneous - Version 1.2 Sprites.png" id="2_xhh6f"]
+[ext_resource type="FontFile" uid="uid://bxs3o6ba2bl7v" path="res://Assets/FlappyBirdRegular-9Pq0.ttf" id="3_cayip"]
+[ext_resource type="PackedScene" uid="uid://cnf5xnlh0yssa" path="res://Scenes/bird.tscn" id="3_wwsa2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jsrd8"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bo1nx"]
+sky_material = SubResource("ProceduralSkyMaterial_jsrd8")
+
+[sub_resource type="Environment" id="Environment_wbdvm"]
+background_mode = 2
+sky = SubResource("Sky_bo1nx")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3rjx"]
+albedo_color = Color(0.6121472, 0.9999997, 0.362556, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6swd7"]
+
+[sub_resource type="Animation" id="Animation_ygmfd"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_i8bdw"]
+resource_name = "flying"
+length = 1.9666667
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ti5v"]
+_data = {
+&"RESET": SubResource("Animation_ygmfd"),
+&"flying": SubResource("Animation_i8bdw")
+}
+
 [node name="Menu" type="Node3D" unique_id=1880970233]
+script = ExtResource("1_158mb")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=525851099]
+environment = SubResource("Environment_wbdvm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=727234337]
+transform = Transform3D(0.82814825, 0.48541492, -0.28025433, 4.439599e-08, 0.49999997, 0.86602557, 0.56050915, -0.71719766, 0.4140741, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1845900429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5625, 0)
+use_collision = true
+size = Vector3(2043.6123, 0.93530273, 2787.6484)
+material = SubResource("StandardMaterial3D_q3rjx")
+
+[node name="Area3D" type="Area3D" parent="CSGBox3D" unique_id=1214340628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1036656, 0)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_cayip")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/Area3D" unique_id=1365077922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47292805, 0)
+shape = SubResource("WorldBoundaryShape3D_6swd7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1922379467]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.9844215, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1341557616]
+libraries/ = SubResource("AnimationLibrary_5ti5v")
+autoplay = &"flying"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1210525454]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1500611736]
+position = Vector2(578, 123.99999)
+scale = Vector2(7, 7)
+texture = ExtResource("2_xhh6f")
+region_enabled = true
+region_rect = Rect2(351, 91, 89, 24)
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=428469386]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -100.0
+offset_right = 274.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.2627451, 0.22745098, 1)
+theme_override_colors/font_outline_color = Color(0.32941177, 0.21960784, 0.2784314, 1)
+theme_override_constants/outline_size = 27
+theme_override_fonts/font = ExtResource("3_cayip")
+theme_override_font_sizes/font_size = 226
+text = "3   D"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=983642362]
+offset_left = 406.0
+offset_top = 439.0
+offset_right = 742.0
+offset_bottom = 589.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/Button" unique_id=1513771749]
+position = Vector2(167.99994, 74.99988)
+scale = Vector2(7, 6)
+texture = ExtResource("2_xhh6f")
+region_enabled = true
+region_rect = Rect2(354, 118, 52, 29)
+
+[node name="Bird" parent="." unique_id=1827215128 instance=ExtResource("3_wwsa2")]
+script = null
+
+[connection signal="body_entered" from="CSGBox3D/Area3D" to="CSGBox3D/Area3D" method="_on_body_entered"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

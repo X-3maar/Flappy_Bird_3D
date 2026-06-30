@@ -28,7 +28,7 @@ albedo_color = Color(0.6121472, 0.9999997, 0.362556, 1)
 environment = SubResource("Environment_8gbba")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=673322877]
-transform = Transform3D(0.69141227, -0.62566924, 0.36123022, 2.4715602e-08, 0.49999994, 0.8660254, -0.72246045, -0.59878045, 0.34570608, 0, 0, 0)
+transform = Transform3D(0.82814825, 0.48541492, -0.28025433, 4.439599e-08, 0.49999997, 0.86602557, 0.56050915, -0.71719766, 0.4140741, 0, 0, 0)
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=99969853]
@@ -47,13 +47,13 @@ script = ExtResource("2_bo1nx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47292805, 0)
 shape = SubResource("WorldBoundaryShape3D_8gbba")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1904658617]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.8066664, 0, 0)
-
 [node name="Spawner" type="Node3D" parent="." unique_id=310694827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.647837)
 script = ExtResource("3_8gbba")
 
 [node name="Bird" parent="." unique_id=1827215128 instance=ExtResource("2_8gbba")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1262699728]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.9095597, 0, 0)
 
 [connection signal="body_entered" from="CSGBox3D/Area3D" to="CSGBox3D/Area3D" method="_on_body_entered"]
