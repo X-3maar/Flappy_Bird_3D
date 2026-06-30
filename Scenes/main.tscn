@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ts7e33s076"]
+
+[ext_resource type="PackedScene" uid="uid://cnf5xnlh0yssa" path="res://Scenes/bird.tscn" id="1_jjgbg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jjgbg"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bo1nx"]
+sky_material = SubResource("ProceduralSkyMaterial_jjgbg")
+
+[sub_resource type="Environment" id="Environment_8gbba"]
+background_mode = 2
+sky = SubResource("Sky_bo1nx")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D" unique_id=169178594]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1082922699]
+environment = SubResource("Environment_8gbba")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=673322877]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Bird" parent="." unique_id=1827215128 instance=ExtResource("1_jjgbg")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=913436179]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 2.3917494, 0, 0)
