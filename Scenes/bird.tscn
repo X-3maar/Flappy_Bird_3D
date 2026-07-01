@@ -55,7 +55,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.089517936, 0)]
+"values": [Vector3(-0.07209418, 0.32101375, -1.5092506)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -67,7 +67,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.36826447, 0.42760566, 0.029670598)]
+"values": [Vector3(-0.07146102, -0.32033905, 1.5242409)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -84,7 +84,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_i8bdw"]
 resource_name = "flying"
-length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -93,10 +92,10 @@ tracks/0/path = NodePath("arm:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.36821857, -0.42728716, 0.030536436), Vector3(0.023582064, 0.56278586, -2.0067477)]
+"values": [Vector3(-0.07209418, 0.32101375, -1.5092506), Vector3(-0.30388665, -0.12737153, 0.25260672)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -105,10 +104,10 @@ tracks/1/path = NodePath("arm2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.36826447, 0.42760566, 0.029670598), Vector3(0.02443461, -0.56199604, 2.0071287)]
+"values": [Vector3(-0.0715585, -0.3211406, 1.5097098), Vector3(-0.3036873, 0.12740904, -0.25307274)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -117,7 +116,7 @@ tracks/2/path = NodePath("arm2:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 1.01),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-1, 1, 1), Vector3(-1, 1, 1)]
@@ -186,7 +185,7 @@ mesh = SubResource("CapsuleMesh_ygmfd")
 surface_material_override/0 = SubResource("StandardMaterial3D_vl8r2")
 
 [node name="arm" type="Node3D" parent="." unique_id=1615893998]
-transform = Transform3D(0.99599564, 0, -0.089398436, 0, 1, 0, 0.0893984, 0, 0.99599606, 0.43656304, 0.24724251, 0)
+transform = Transform3D(0.081049845, 0.94572145, 0.314709, -0.99551356, 0.06134706, 0.07203174, 0.048815466, -0.31913537, 0.9464509, 0.43656304, 0.24724251, 0)
 
 [node name="WING" type="Node3D" parent="arm" unique_id=174826478]
 transform = Transform3D(0.8678835, -0.071970485, 0.49152684, -0.054282278, 0.9697851, 0.23784406, -0.49379343, -0.23310211, 0.83775395, 0.12780252, 0.118717074, 0.20597962)
@@ -232,7 +231,7 @@ mesh = SubResource("CapsuleMesh_xf4a6")
 surface_material_override/0 = SubResource("StandardMaterial3D_ygmfd")
 
 [node name="arm2" type="Node3D" parent="." unique_id=150286668]
-transform = Transform3D(-0.905132, -0.17621768, 0.38688952, -0.027677229, 0.9325429, 0.3599968, 0.42422888, -0.31513655, 0.8489516, -0.437, 0.247, 0)
+transform = Transform3D(-0.06662992, -0.94705397, -0.3140847, -0.996367, 0.046419878, 0.07140022, 0.053040083, -0.31770104, 0.94670624, -0.437, 0.247, 0)
 
 [node name="WING" type="Node3D" parent="arm2" unique_id=45361624]
 transform = Transform3D(0.8678835, -0.07197066, 0.49152696, -0.054282278, 0.9697851, 0.2378441, -0.4937935, -0.23310207, 0.83775383, 0.12780252, 0.118717074, 0.20597962)

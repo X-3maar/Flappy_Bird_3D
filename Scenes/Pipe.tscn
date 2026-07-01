@@ -21,7 +21,7 @@ height = 6.935791
 radius = 0.54345703
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vf00i"]
-height = 2.5726929
+height = 2.3428802
 radius = 0.11035156
 
 [node name="Pipe" type="AnimatableBody3D" unique_id=570592516]
@@ -30,8 +30,6 @@ script = ExtResource("1_t5chl")
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=711868487]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.4838934, 0)
 use_collision = true
-collision_layer = 2
-collision_mask = 2
 height = 6.790146
 sides = 30
 material = SubResource("StandardMaterial3D_vf00i")
@@ -39,8 +37,6 @@ material = SubResource("StandardMaterial3D_vf00i")
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=780119771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0567297, 0)
 use_collision = true
-collision_layer = 2
-collision_mask = 2
 radius = 0.5605469
 height = 0.15516472
 sides = 30
@@ -64,8 +60,6 @@ material = SubResource("StandardMaterial3D_8f5oa")
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=2123273187]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 8.152617e-05, 933.5257, 0)
 use_collision = true
-collision_layer = 2
-collision_mask = 2
 height = 1863.4802
 sides = 30
 material = SubResource("StandardMaterial3D_vf00i")
@@ -73,8 +67,6 @@ material = SubResource("StandardMaterial3D_vf00i")
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=1004961982]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -1.498061e-07, 1.7461934, 0)
 use_collision = true
-collision_layer = 2
-collision_mask = 2
 radius = 0.5605469
 height = 0.15516472
 sides = 30
@@ -114,7 +106,7 @@ collision_mask = 2
 script = ExtResource("2_nq301")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Point" unique_id=388913359]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37142944, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33583832, 0)
 shape = SubResource("CylinderShape3D_vf00i")
 
 [connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
